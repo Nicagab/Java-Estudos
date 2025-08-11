@@ -1,3 +1,7 @@
+
+import java.awt.desktop.SystemEventListener;
+import java.io.StringReader;
+
 public class P0207EstruturasDeControleDeErros {
     public static void main(String[] args) {
         // Diretiva try, catch, finally
@@ -29,5 +33,16 @@ public class P0207EstruturasDeControleDeErros {
         } finally {
             System.out.println("Diretiva com execução garantida");
         }
+        // Try com recursos
+        StringReader recurso = new StringReader("Recurso");
+
+        try (recurso) {
+            System.out.println(recurso);
+        } catch (Exception e) {
+            System.out.println("Erro");
+        }
+        // Asserções (estão normalmente desabilitadas)
+        int valor = 10;
+        assert valor>10;
     }
 }
